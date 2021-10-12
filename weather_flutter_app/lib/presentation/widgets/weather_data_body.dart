@@ -42,15 +42,16 @@ class WeatherDataBody extends StatelessWidget {
   }
 
   Widget buildBodyWithData(WeatherForecast forecast) {
-    return
-      Column(children: [
-        Center(child: createCityDataWidget(forecast)),
-        Center(child: createWeatherIconWidget(forecast)),
-        Center(child: createTempAndDescWidget(forecast)),
-        Center(child: createCurrentWeatherDataRowWidget(forecast)),
-        Center(child: createCarouselWidget(forecast))
-      ]
-    );
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Center(child: createCityDataWidget(forecast)),
+          Center(child: createWeatherIconWidget(forecast)),
+          Center(child: createTempAndDescWidget(forecast)),
+          Center(child: createCurrentWeatherDataRowWidget(forecast)),
+          Center(child: createCarouselWidget(forecast))
+        ]);
   }
 
   Widget createCityDataWidget(WeatherForecast forecast) {
@@ -123,7 +124,9 @@ class WeatherDataBody extends StatelessWidget {
         child: Text("wind : ${forecast.currentWeather.windSpeed}m/s",
             textAlign: TextAlign.center,
             style: const TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.bold)),
       ),
       Expanded(
         child: Text("humidity : ${forecast.currentWeather.hygroLvl}%",
@@ -134,7 +137,9 @@ class WeatherDataBody extends StatelessWidget {
         child: Text("max temp : ${forecast.currentWeather.tempMax}°C",
             textAlign: TextAlign.center,
             style: const TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.bold)),
       ),
     ]);
   }
